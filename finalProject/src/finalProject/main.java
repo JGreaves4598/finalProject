@@ -49,10 +49,24 @@ public class main {
 				}else {
 					System.out.println("Please enter a valid ID");
 				}
-				System.out.println("TEST - ARRAY SIZE = "+userlist.size());
 				
 			}else if(option.equalsIgnoreCase("Delete")) {
-				System.out.println("Delete");
+				
+				System.out.print("What is the ID of the user to be deleted: ");
+				int tempID = input.nextInt();
+				if(tempID < userlist.size()) {
+					System.out.println("User of ID "+tempID+" is "+userlist.get(tempID));
+					System.out.print("Is this the user you would like to delete? (Y/N)");
+					String res = input.next();
+					if(res.equalsIgnoreCase("Y")) {
+						userlist.remove(tempID);
+						System.out.println("ID "+tempID+" removed.");
+					}else if(res.equalsIgnoreCase("N")) {
+						System.out.println("Returning to Menu...");
+					}else {
+						System.out.println("Invalid result, returning to menu");
+					}
+				}
 			}else {
 				System.out.println("You must enter a valid option");
 			}
